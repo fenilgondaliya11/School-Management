@@ -1,0 +1,168 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="~/CS Files/MasterPage.master.cs" Inherits="MasterPage" %>
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <!-- basic -->
+    <!-- site metas -->
+    <title>Patel School IN AHMEDABAD</title>
+    <!-- site icon -->
+    <link rel="icon" type="image/png" href="images/logo/icon.png" />
+    <!-- Font Awsomeicon Link -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+    <!-- bootstrap css -->
+    <link rel="stylesheet" href="css/bootstrap.min.css" />
+    <!-- site css -->
+    <link rel="stylesheet" href="css/style.css" />
+    <!-- responsive css -->
+    <link rel="stylesheet" href="css/responsive.css" />
+    <!-- select bootstrap -->
+    <link rel="stylesheet" href="css/bootstrap-select.css" />
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body class="dashboard dashboard_1" oncontextmenu="return false">
+    <form id="form1" runat="server">
+        <div class="full_container">
+            <div class="inner_container">
+
+                <!-- Sidebar  -->
+                <nav id="sidebar">
+                    <div class="sidebar_blog_1">
+                        <div class="sidebar_user_info">
+                            <div class="icon_setting"></div>
+                            <div class="user_profle_side">
+                                <div class="user_img">
+                                    <asp:Image ID="UserLogo" runat="server" CssClass="img-responsive" />
+                                </div>
+                                <div class="user_info">
+                                    <h6 id="setUsername" runat="server"></h6>
+                                    <p>
+                                        <span class="online_animation"></span> 
+                                        <span id="setUserrole" runat="server"></span>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="sidebar_blog_2">
+                        <ul class="list-unstyled components">
+                            <li>
+                                <a href="Default.aspx">
+                                    <i class="fa fa-dashboard yellow_color"></i>
+                                    <span>Dashboard</span>
+                                </a>
+                            </li>
+                            <li id="staffMenu" runat="server">
+                                <a href="staffPage.aspx">
+                                    <i class="fas fa-users orange_color"></i>
+                                    <span>Staff</span>
+                                </a>
+                            </li>
+                            <li id="studentMenu" runat="server">
+                                <a href="studentPage.aspx">
+                                    <i class="fas fa-user-graduate purple_color"></i>
+                                    <span>Students</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="profilePage.aspx">
+                                    <i class="fas fa-user-circle skay_color"></i>
+                                    <span>Profile</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="notificationPage.aspx">
+                                    <i class="far fa-bell blue2_color"></i>
+                                    <span>Notification</span>
+                                </a>
+                            </li>
+                            <li id="feesMenu" runat="server">
+                                <a href="feePage.aspx">
+                                    <i class="fas fa-dollar-sign blue1_color"></i>
+                                    <span>Fees</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="attendancePage.aspx">
+                                    <i class="far fa-calendar-check green_color"></i>
+                                    <span>Attendance</span>
+                                </a>
+                            </li>
+                            <li id="resultMenu" runat="server">
+                                <a href="resultPage.aspx">
+                                    <i class="far fa-clipboard yellow_color"></i>
+                                    <span>Result</span>
+                                </a>
+                            </li>
+                            <li id="binMenu" runat="server">
+                                <a href="binPage.aspx">
+                                    <i class="fas fa-trash-alt red_color"></i>
+                                    <span>Bin</span>
+                                </a>
+                            </li>
+                            <li>
+                                <asp:LinkButton ID="logoutMenu" runat="server" OnClick="BtnLogout_Click" OnClientClick="return confirm('Are You Sure Log Out This Account?');">
+                                    <i class="fas fa-sign-out orange_color"></i>
+                                    <span>Log Out</span>
+                                </asp:LinkButton>
+                            </li>
+                        </ul>
+                    </div>
+                </nav>
+            </div>
+        </div>
+        <!-- end sidebar -->
+        <!-- topbar -->
+        <div class="topbar">
+            <nav class="navbar navbar-expand-lg navbar-light">
+                <div class="full">
+                    <div class="right_topbar">
+                        <div class="icon_info">
+                            <ul>
+                                <li>
+                                    <a href="notificationPage.aspx">
+                                        <i class="fa fa-bell-o"></i>
+                                    </a>
+                                </li>
+                            </ul>
+                            <ul class="user_profile_dd">
+                                <li>
+                                    <a class="dropdown-toggle" data-toggle="dropdown">
+                                        <asp:Image ID="BoxUserLogo" runat="server" CssClass="img-responsive rounded-circle" />
+                                        <span class="name_user" id="boxUsername" runat="server"></span>
+                                    </a>
+                                    <div class="dropdown-menu">
+                                        <asp:LinkButton ID="BtnProfile" runat="server" CssClass="dropdown-item" OnClick="BtnProfile_Click">My Profile</asp:LinkButton>
+                                        <asp:LinkButton ID="BtnLogout" runat="server" CssClass="dropdown-item" OnClick="BtnLogout_Click" OnClientClick="return confirm('Are You Sure LogOut Conform?');">Log Out</asp:LinkButton>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </nav>
+        </div>
+        <!-- end topbar -->
+        <div>
+            <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+            </asp:ContentPlaceHolder>
+        </div>
+
+        <script src="js/jquery.min.js"></script>
+        <script src="js/popper.min.js"></script>
+        <script src="js/bootstrap.min.js"></script>
+        <!-- select country -->
+        <script src="js/bootstrap-select.js"></script>
+        <!-- Sweetalert JS -->
+        <script src="js/sweetalert.min.js"></script>
+        <!-- custom js -->
+        <script src="js/custom.js"></script>
+        <script>
+            var ps = new PerfectScrollbar('#sidebar');
+        </script>
+
+    </form>
+</body>
+</html>
